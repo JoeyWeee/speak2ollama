@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Translation</title>
+  <style>
+    /* Basic styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    h3 {
+      margin: 10px 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Grid layout: three-column layout */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 20px;
+      height: auto; /* Auto height */
+      min-height: 500px;
+    }
+
+    .output {
+      font-size: 16px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      height: 300px;
+      overflow-y: auto;
+      background-color: #fafafa;
+      color: #333;
+      word-wrap: break-word;
+      box-sizing: border-box;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    /* Button styles */
+    .button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      width: 160px;
+      transition: background-color 0.3s, transform 0.3s;
+      border: none;
+    }
+
+    .button:disabled {
+      background-color: #ddd;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    .button:active {
+      background-color: #3e8e41;
+      transform: scale(1);
+    }
+
+    .transcript-item {
+      margin: 10px 0;
+      padding: 12px;
+      background-color: #e3f9e5;
+      border-radius: 10px;
+      color: #4CAF50;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* Column styles */
+    .left-col, .middle-col, .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Voice Translation System</h1>
+
+  <div class="container">
+    <!-- Left column: Voice Input -->
+    <div class="left-col">
+      <h3>Voice Input</h3>
+      <div class="output" id="inputOutput">Waiting for voice input...</div>
+    </div>
+
+    <!-- Middle column: Chinese Translation -->
+    <div class="middle-col">
+      <h3>Chinese Translation</h3>
+      <div class="output" id="chineseOutput">中文结果...</div>
+    </div>
+
+    <!-- Right column: English Translation -->
+    <div class="right-col">
+      <h3>English Translation</h3>
+      <div class="output" id="englishOutput">English Result...</div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="button" id="startChinese">中文语音</button>
+    <button class="button" id="startEnglish">Start English Speech</button>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
