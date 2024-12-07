@@ -21,8 +21,5 @@ ollama run llama3.2
 2. Start the Server:
 Run the Command in the Root Folder:npm start
 
-Run the command:
-ollama run llama3.2
-
 Open the Page:
 Open the index.html file in your browser.
